@@ -1,0 +1,3 @@
+book_ID,ID,number,createdAt,createdBy,modifiedAt,modifiedBy
+32508139-cb39-48f2-866b-855a36401d99,1025067f-39cf-44bf-8bf2-d107561cf5ee,24,2022-08-30T00:00:00.000Z,createdBy.lyy3@example.com,2018-01-01T00:00:00.000Z,modifiedBy.lyy3@example.net
+32508139-cb39-48f2-866b-855a36401d99,1025068c-216e-4a9f-9938-aa8490946360,39,2006-08-26T00:00:00.000Z,createdBy.lyy4@example.org,2004-04-09T00:00:00.000Z,modifiedBy.lyy4@example.com

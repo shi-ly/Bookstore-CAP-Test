@@ -2,24 +2,48 @@ using {
     cuid,
     managed
 } from '@sap/cds/common';
-
-
+ 
+ 
 namespace Bookstore.db;
-
+ 
 entity Books : cuid, managed {
-    title    : String;
-    author   : Association to Authors;
-    Chapters : Composition of many Chapters
-                   on Chapters.book = $self;
+    title       : String;
+    author      : Association to Authors;
+    genre       : String;
+    publishedAt : Date;
+    pages       : Integer;
+    price       : Decimal(9, 2);
+    currency    : String;
+    stock       : Integer;
+    status      : Association to BookStatus;
+    Chapters    : Composition of many Chapters
+                      on Chapters.book = $self;
+ 
+ 
 }
-
+ 
 entity Authors : cuid, managed {
     name  : String;
     books : Association to many Books
                 on books.author = $self;
 }
-
+ 
 entity Chapters : cuid, managed {
-        number : Integer;
     key book   : Association to Books;
+        number : Integer;
+        title  : String;
+        pages  : Integer;
 }
+
+type BookStatusCode : String(1) enum {
+    Available = 'A';
+    Low_Stock = 'L';
+    Unavailable = 'U';
+};
+ 
+entity BookStatus {
+    key code        : BookStatusCode;
+        criticality : Integer;
+        displayText : String;
+}
+
